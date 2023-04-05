@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Datas from './Data';
+import Nav from './components/Nav';
+import Body from './components/Body';
+import "./Styles.css";
 
-function App() {
+function App(props) {
+  
+  const Items = Datas.map(Data => {
+    return <Body
+      key={Data.id}
+      Data = {Data}
+    
+    />;
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <section className='Scroll--menu'>{Items}
+        
+      </section>
     </div>
   );
 }
